@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>사용자 진규 작성</title>        
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <link rel="stylesheet" href="{{url_for('auth.static',filename='createStyle.css')}}" />
+    </head>
+    <body>
+        <div id="form-container">
+            <div id="form-inner-container">
+              <!-- Sign up form -->
+                <div id="sign-up-container">
+                    <h3>Get Started</h3>
+                    <form action="{{url_for('auth.create_user')}}" method="POST" novalidate="novalidate">
+                        {{form.csrf_token}}
+
+                        {{form.username.label}}
+                        {{form.username(placeholder="사용자명")}}
+                        {% for error in form.username.errors %}
+                        <p><span style="color: red;">{{ error }}</span></p>
+                        {% endfor %} 
+
+                        {{form.email.label}} 
+                        {{form.email(placeholder="메일주소")}}
+                        {% for error in form.username.errors %}
+                        <p><span style="color: red;">{{ error }}</span></p>
+                        {% endfor %}
+
+                        {{form.password.label}} 
+                        {{form.password(placeholder="비밀번호")}}
+                        {% for error in form.username.errors %}
+                        <p><span style="color: red;">{{ error }}</span></p>
+                        {% endfor %}
+            
+                        <div id="form-controls">                        
+                            <button type="submit">Sign Up</button>
+                            <button type="button" id="toggleSignIn">Sign In</button>
+                        </div>
+            
+                        <input type="checkbox" name="terms" id="terms">
+                        <label for="terms">I agree to the <a href="#" class="termsLink">Terms of service</a> and <a href="#" class="termsLink">Privacy Policy</a>.</label>
+                        
+                    </form>
+                </div>
+              <!-- Sign in form 
+              <div id="sign-in-container" class="hide">
+                <h3>Welcome Back</h3>
+                <form>
+                  <label for="username">Username</label>
+                  <input type="text" name="username" id="username" placeholder="user@example.com">
+      
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;">
+      
+                  <div id="form-controls">
+                    <button type="submit">Sign In</button>
+                    <button type="button" id="toggleSignUp">Sign Up</button>
+                  </div>
+      
+                  <input type="checkbox" name="terms" id="terms">
+                  <label for="terms">I agree to the <a href="#" class="termsLink">Terms of service</a> and <a href="#" class="termsLink">Privacy Policy</a>.</label>
+                </form>
+              </div>-->
+      
+              <!-- Lottie animation -->
+              
+            </div>
+        </div>
+    </body>
+</html>

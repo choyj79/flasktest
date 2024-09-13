@@ -12,20 +12,6 @@ crud = Blueprint(
     static_folder="static", 
 )
 
-# Blueprint로 crud 앱을 생성한다
-board = Blueprint(
-    "board",
-    __name__,
-    template_folder="templates",
-    static_folder="static", 
-)
-
-# index 엔드포인트를 작성하고 index.html을 반환한다
-@board.route("/board")
-def index():
-    return render_template("board/index.html") 
-
-
 # index 엔드포인트를 작성하고 index.html을 반환한다
 @crud.route("/")
 def index():
@@ -57,7 +43,7 @@ def sql():
     # user.password = "1111"
     # db.session.add(user)
     # db.session.commit()
-    user = db.session.query(User).filter_by(id=1).delete()
+    # user = db.session.query(User).filter_by(id=1).delete()
     db.session.commit()
     return "콘솔 확인1"
 
@@ -87,7 +73,6 @@ def create_user():
 def users():
     #사용자의 일람을 취득
     users = User.query.all()
-    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     print(users)
     return render_template('crud/index.html',users=users)
 #사용자 편집 화면 엔드포인트

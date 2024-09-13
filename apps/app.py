@@ -31,10 +31,16 @@ def create_app(config_key):
     #register_blueprint를 사용해 views 의 curd를 앱에 등록
     app.register_blueprint(crud_views.crud, url_prefix="/crud")     
     
-     # crud 패키지로부터 views를 import한다
+    # board 패키지로부터 views를 import한다
     from apps.board import views as board_views
     
-    #register_blueprint를 사용해 views 의 curd를 앱에 등록
+    #register_blueprint를 사용해 views 의 board를 앱에 등록
     app.register_blueprint(board_views.board, url_prefix="/board") 
+    
+    # auth 패키지로부터 views를 import한다
+    from apps.auth import views as auth_views
+    
+    #register_blueprint를 사용해 views 의 auth를 앱에 등록
+    app.register_blueprint(auth_views.auth, url_prefix="/auth") 
         
     return app
