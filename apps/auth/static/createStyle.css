@@ -17,6 +17,8 @@ body {
     max-width: 70%;
     border-radius: 8px;
     box-shadow: 0 0 20px gainsboro;
+    gap: 10px;
+    /* 요소 간의 간격 조정 */
 }
 
 #sign-up-container,
@@ -39,6 +41,11 @@ form input:not(:last-of-type) {
 
 #form-controls {
     margin-bottom: 20px;
+}
+
+#form-controls_new {
+    margin-bottom: 20px;
+    margin-left: 80px;
 }
 
 
@@ -68,10 +75,11 @@ label {
 }
 
 button[type="submit"] {
-    padding: 16px 75px;
+    padding: 12px 50px;
     background-color: #ED4B5E;
     border-radius: 10px;
     color: white;
+    margin-left: 1px;
 }
 
 button[type="submit"]:hover {
@@ -111,6 +119,15 @@ label[for="terms"] {
 .termsLink {
     color: #EF7886;
     text-decoration: none;
+}
+
+.layout-placeholder {
+    height: 20px;
+    /* 기존 요소의 높이 */
+    margin-bottom: 10px;
+    /* 기존 요소의 마진 */
+    width: 100%;
+    /* 필요에 따라 너비 설정 */
 }
 
 .hide {
@@ -169,4 +186,75 @@ label[for="terms"] {
         display: inline-block;
         font-size: smaller;
     }
+}
+
+*.user_info {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div.user_info {
+    position: relative;
+    width: 300px;
+    margin-left: 50px;
+    margin-top: 100px;
+}
+
+.user_info input {
+    font-size: 15px;
+    color: #222222;
+    width: 400px;
+    border: none;
+    border-bottom: solid #aaaaaa 1px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+    background: none;
+    z-index: 5;
+}
+
+
+.user_info span {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    /* right로만 바꿔주면 오 - 왼 */
+    background-color: #666;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+
+.user_info label {
+    color: #aaa;
+    left: 10px;
+    font-size: 20px;
+    bottom: 8px;
+    transition: all .2s;
+}
+
+
+.user_info input:focus~span,
+.user_info input:valid~span {
+    width: 100%;
+}
+
+
+
+#button {
+    width: 111%;
+    text-align: center;
+}
+
+#userId {
+    width: 115%;
+    text-align: center;
+    margin: auto;
+    margin-top: 0.5cm;
+    margin-bottom: 1cm;
+    font-weight: bold;
+    font-size: 1.8em;
 }

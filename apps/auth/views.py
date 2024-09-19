@@ -47,6 +47,20 @@ def users():
     print(users)
     return render_template('auth/index.html',users=users)
 
+@auth.route('/user/<user_id>',methods=["POST","GET"])
+def edit_user(user_id):
+    form = UserForm() #유효성 검사를 위한 객체 생성하기
+    user = UserTest.query.filter_by(id=user_id).first() #데이터 얻기
+    if form.validate_on_submit():
+        user.username = form.username.data
+        user.email = form.email.data
+        user.password = form.password.data
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("auth.users"))
+    return render_template('auth/edit.html',user=user, form=form)
+
+
 @auth.route("/sql")
 def sql():
     db.session.query(UserTest).all()
