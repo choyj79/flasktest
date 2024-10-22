@@ -1,5 +1,6 @@
 from datetime import datetime
-from apps.app import db
+from app import db
+# from apps.app import db
 from werkzeug.security import generate_password_hash
 
 # db.Model을 상속한 User 클래스를 작성한다

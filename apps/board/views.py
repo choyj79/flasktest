@@ -1,4 +1,5 @@
-from apps.app import db
+# from apps.app import db
+from app import db
 from apps.crud.models import User
 from flask import Blueprint, render_template, redirect, url_for
 from apps.crud.forms import UserForm
