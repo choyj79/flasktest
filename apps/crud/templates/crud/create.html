@@ -1,32 +1,37 @@
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <title>사용자 진규 작성</title>
-    </head>
-    <body>
-        <h2>사용자 신규 작성</h2>
-        <form action="{{url_for('crud.create_user')}}" method="POST" novalidate="novalidate">
-            {{form.csrf_token}}
-            <p>
-                {{form.username.label}} {{form.username(placeholder="사용자명")}}
-            </p>
-            {% for error in form.username.errors %}
-            <span style="color: red;">{{ error }}</span>
-            {% endfor %} 
-            <p>
-                {{form.email.label}} {{form.email(placeholder="메일주소")}}
-            </p>
-            {% for error in form.username.errors %}
-            <span style="color: red;">{{ error }}</span>
-            {% endfor %} 
-            <p>
-                {{form.password.label}} {{form.password(placeholder="비밀번호")}}
-            </p>
-            {% for error in form.username.errors %}
-            <span style="color: red;">{{ error }}</span>
-            {% endfor %} 
-            <p>{{form.submit()}}</p>
-        </form>
-    </body>
-</html>
+{% extends "main/base.html" %}
+
+{% block title %}사용자 신규 작성{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('crud.static', filename='createStyle.css') }}">
+
+<div id="create-form-container">
+    <div id="create-form-inner-container">
+        <div id="create-sign-up-container">
+            <h3>사용자 신규 작성</h3>
+            <form action="{{ url_for('crud.create_user') }}" method="POST">
+                {{ form.csrf_token }}
+                <p>
+                    {{ form.username.label }} {{ form.username(placeholder="사용자명") }}
+                </p>
+                {% for error in form.username.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <p>
+                    {{ form.email.label }} {{ form.email(placeholder="메일주소") }}
+                </p>
+                {% for error in form.email.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <p>
+                    {{ form.password.label }} {{ form.password(placeholder="비밀번호") }}
+                </p>
+                {% for error in form.password.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+                <p><button type="submit">등록</button></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

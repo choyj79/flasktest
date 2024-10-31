@@ -2,12 +2,48 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8" />
-        <!--title을 상속처에서 구현한다-->
-        <title>{% block title %}{% endblock%}</title>
-        <link rel="stylesheet" href="{{ url_for('crud.static', filename='style.css')}}" />
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('main.static', filename='assets/css/main.css') }}" />  
+        <link rel="stylesheet" href="{{ url_for('auth.static', filename='style.css') }}" />      
+        <style>
+            /* Flexbox 레이아웃 설정 */
+            #wrapper {
+                display: flex;
+                max-width: 1200px;
+                margin: 0 auto;
+                min-height: 100vh;
+            }
+            #sidebar {
+                width: 380px; /* 사이드바 너비를 search 너비에 맞게 확장 */
+                background: #f4f4f4;
+                padding: 15px;
+                box-sizing: border-box;
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh; /* 화면 전체 높이 */
+                box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+            }
+            #content {
+                flex: 1;
+                padding: 15px;
+                box-sizing: border-box;
+                margin-left: 320px; /* 사이드바 너비만큼 오른쪽으로 이동 */
+            }
+        </style>
     </head>
     <body>
-        <!-- content를 상속처에서 구현-->
-         {% block content %}{% endblock %}
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar">
+                {% include "main/side.html" %}
+            </div>
+
+            <!-- Main Content Area -->
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
     </body>
 </html>

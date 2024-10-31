@@ -1,5 +1,5 @@
 from pathlib import Path
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint,render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
@@ -8,8 +8,6 @@ from apps.config import config  # 경로는 그대로 유지
 # SQLAlchemy를 인스턴스화 하기
 db = SQLAlchemy()
 csrf = CSRFProtect()
-
-
 # basedir = Path(__file__).parent
 
 # #BaseConfig 클래스 작성하기
@@ -44,9 +42,9 @@ def create_app(config_key):
     app = Flask(__name__)
 
     # 기본 라우트 추가
-    @app.route('/')
-    def hello_world():
-        return 'Hello world flask!'
+    # @app.route('/')
+    # def index():
+    #     return render_template('main.html')
 
     # 앱의 config 설정
     app.config.from_object(config[config_key])

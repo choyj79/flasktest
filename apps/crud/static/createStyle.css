@@ -1,0 +1,319 @@
+/* body 스타일 */
+body {
+    background-color: #F3F4F9;
+    /* 페이지 배경 색상 */
+    margin: 0;
+    /* 기본 마진 제거 */
+    padding: 0;
+    /* 기본 패딩 제거 */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* 기본 폰트 설정 */
+}
+
+/* 폼 컨테이너 스타일 */
+#create-form-container {
+    height: 100vh;
+    /* 전체 화면 높이 설정 */
+    display: flex;
+    /* flexbox 사용 */
+    justify-content: center;
+    /* 수평 중앙 정렬 */
+    align-items: center;
+    /* 수직 중앙 정렬 */
+}
+
+/* 폼 내부 컨테이너 스타일 */
+#create-form-inner-container {
+    background-color: white;
+    /* 내부 컨테이너 배경색 */
+    max-width: 500px;
+    /* 최대 너비 조정 */
+    width: 90%;
+    /* 너비 조정 */
+    border-radius: 8px;
+    /* 모서리 둥글게 */
+    box-shadow: 0 0 20px gainsboro;
+    /* 그림자 효과 */
+    gap: 10px;
+    /* 요소 간의 간격 조정 */
+}
+
+/* 사용자 등록 및 로그인 컨테이너 스타일 */
+#create-sign-up-container,
+#create-sign-in-container {
+    padding: 40px 40px;
+    /* 패딩 조정 */
+    width: 100%;
+    /* 너비 조정 */
+    display: inline-block;
+    /* 인라인 블록으로 설정 */
+}
+
+/* 입력 필드 스타일 */
+#create-form-container form input:not(:last-of-type) {
+    display: block;
+    /* 블록 요소로 설정 */
+    margin-bottom: 20px;
+    /* 하단 여백 */
+    border: 1px solid #E5E9F5;
+    /* 테두리 색상 */
+    background-color: #F6F7FA;
+    /* 배경색 */
+    padding: 20px;
+    /* 내부 여백 */
+    margin-top: 10px;
+    /* 상단 여백 */
+    border-radius: 10px;
+    /* 모서리 둥글게 */
+    width: 100%;
+    /* 전체 너비 */
+}
+
+/* 버튼 스타일 */
+#create-form-controls {
+    margin-bottom: 20px;
+    /* 여백 */
+}
+
+/* 제목 스타일 */
+h3 {
+    color: red;
+    /* 제목 색상 */
+    font-size: 150%;
+    /* 폰트 크기 */
+    font-weight: 500;
+    /* 폰트 두께 */
+}
+
+/* 라벨 스타일 */
+label {
+    color: #7369AB;
+    /* 라벨 색상 */
+}
+
+/* 플레이스홀더 스타일 */
+::placeholder {
+    color: #C0C7DB;
+    /* 플레이스홀더 색상 */
+    font-size: larger;
+    /* 폰트 크기 */
+    letter-spacing: 1.2px;
+    /* 글자 간격 */
+}
+
+/* 버튼 스타일 */
+#create-form-controls button {
+    border: none;
+    /* 테두리 제거 */
+    font-size: 120%;
+    /* 폰트 크기 */
+}
+
+#create-form-controls button:hover {
+    cursor: pointer;
+    /* 마우스 오버 시 커서 모양 변경 */
+}
+
+/* 제출 버튼 스타일 */
+button[type="submit"] {
+    padding: 12px 50px;
+    /* 내부 여백 */
+    background-color: #ED4B5E;
+    /* 배경색 */
+    border-radius: 10px;
+    /* 모서리 둥글게 */
+    color: white;
+    /* 글자색 */
+    margin-left: 1px;
+    /* 왼쪽 여백 */
+    width: 100%;
+    /* 버튼 너비 조정 */
+}
+
+button[type="submit"]:hover {
+    background-color: #ff6678;
+    /* 마우스 오버 시 배경색 */
+}
+
+/* 체크박스 스타일 */
+#terms {
+    width: 30px;
+    /* 너비 설정 */
+    height: 30px;
+    /* 높이 설정 */
+    appearance: none;
+    /* 기본 스타일 제거 */
+    border: 2px solid #7369AB;
+    /* 테두리 설정 */
+    border-radius: 4px;
+    /* 모서리 둥글게 */
+    position: relative;
+    /* 위치 설정 */
+}
+
+#terms:checked:after {
+    content: '\2713';
+    /* 체크 표시 */
+    color: #7369AB;
+    /* 체크 표시 색상 */
+    font-size: 24px;
+    /* 체크 표시 폰트 크기 */
+    position: absolute;
+    /* 절대 위치 설정 */
+    top: 0;
+    /* 위쪽 위치 */
+    left: 3px;
+    /* 왼쪽 위치 */
+}
+
+/* 레이블 스타일 */
+label[for="terms"] {
+    display: inline-block;
+    /* 인라인 블록으로 설정 */
+    width: 80%;
+    /* 너비 설정 */
+    margin-left: 10px;
+    /* 왼쪽 여백 */
+}
+
+.termsLink {
+    color: #EF7886;
+    /* 링크 색상 */
+    text-decoration: none;
+    /* 밑줄 제거 */
+}
+
+/* 반응형 디자인 */
+@media(max-width: 684px) {
+    #create-form-controls {
+        text-align: center;
+        /* 중앙 정렬 */
+        margin: 0;
+        /* 여백 제거 */
+        padding: 0;
+        /* 패딩 제거 */
+    }
+
+    button {
+        width: 100%;
+        /* 버튼 너비 100% */
+    }
+
+    form input:not(:last-of-type) {
+        width: 85%;
+        /* 입력 필드 너비 */
+    }
+}
+
+/* 사용자 정보 스타일 */
+.user_info {
+    margin: 0;
+    /* 기본 여백 제거 */
+    padding: 0;
+    /* 기본 패딩 제거 */
+    box-sizing: border-box;
+    /* 박스 크기 설정 */
+}
+
+.user_info div {
+    position: relative;
+    /* 상대 위치 설정 */
+    width: 300px;
+    /* 너비 설정 */
+    margin-left: 50px;
+    /* 왼쪽 여백 */
+    margin-top: 100px;
+    /* 상단 여백 */
+}
+
+.user_info input {
+    font-size: 15px;
+    /* 폰트 크기 */
+    color: #222222;
+    /* 텍스트 색상 */
+    width: 400px;
+    /* 너비 설정 */
+    border: none;
+    /* 테두리 제거 */
+    border-bottom: solid #aaaaaa 1px;
+    /* 하단 테두리 */
+    padding-bottom: 10px;
+    /* 하단 여백 */
+    padding-left: 10px;
+    /* 왼쪽 여백 */
+    position: relative;
+    /* 위치 설정 */
+    background: none;
+    /* 배경 제거 */
+    z-index: 5;
+    /* 쌓기 순서 설정 */
+}
+
+/* 하단 라인 효과 */
+.user_info span {
+    display: block;
+    /* 블록 요소로 설정 */
+    position: absolute;
+    /* 절대 위치 설정 */
+    bottom: 0;
+    /* 아래쪽 위치 */
+    left: 0;
+    /* 왼쪽 위치 */
+    background-color: #666;
+    /* 배경 색상 */
+    width: 0;
+    /* 초기 너비 */
+    height: 2px;
+    /* 높이 설정 */
+    border-radius: 2px;
+    /* 둥글게 */
+    transition: 0.5s;
+    /* 트랜지션 효과 */
+}
+
+/* 라벨 스타일 */
+.user_info label {
+    color: #aaa;
+    /* 텍스트 색상 */
+    left: 10px;
+    /* 왼쪽 위치 */
+    font-size: 20px;
+    /* 폰트 크기 */
+    bottom: 8px;
+    /* 아래쪽 위치 */
+    transition: all .2s;
+    /* 트랜지션 효과 */
+}
+
+/* 입력 필드 포커스 시 효과 */
+.user_info input:focus~span,
+.user_info input:valid~span {
+    width: 100%;
+    /* 너비를 100%로 확장 */
+}
+
+/* 버튼 스타일 */
+#button {
+    width: 111%;
+    /* 너비 설정 */
+    text-align: center;
+    /* 중앙 정렬 */
+}
+
+/* 사용자 ID 스타일 */
+#userId {
+    width: 115%;
+    /* 너비 설정 */
+    text-align: center;
+    /* 중앙 정렬 */
+    margin: auto;
+    /* 중앙 정렬 */
+    margin-top: 0.5cm;
+    /* 상단 여백 */
+    margin-bottom: 1cm;
+    /* 하단 여백 */
+    font-weight: bold;
+    /* 글자 두껍게 */
+    font-size: 1.8em;
+    /* 폰트 크기 */
+}

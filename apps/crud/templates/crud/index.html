@@ -1,30 +1,30 @@
-<!--
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="stylesheet" href="{{url_for('crud.static',filename='style.css')}}" />
-        <title>사용자의 일람</title>
-    </head>
---> 
-{% extends "crud/base.html" %}
-{%block title%}사용자의 일람{%endblock%}
+{% extends "main/base.html" %}
 
-{%block content%}
-<h2>사용자의 일람</h2>
-<a href="{{ url_for('crud.create_user')}}">사용자 신규 작성</a>
-<table>
-    <tr>
-        <th>사용자 ID</th>
-        <th>사용자명</th>
-        <th>메일주소</th>
-    </tr>            
-    {% for i in users %}
-        <tr>
-            <td><a href="{{url_for('crud.edit_user',user_id=i.id)}}">{{ i.id }}</a></td>
-            <td>{{ i.username }}</td>
-            <td>{{ i.email }}</td>
-        </tr>
-    {% endfor %}
-</table>
-{%endblock%}
+{% block title %}사용자 목록{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('crud.static', filename='style.css') }}">
+
+<div class="crud">
+    <h2 class="crud-title">사용자 목록</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>사용자 ID</th>
+                <th>사용자명</th>
+                <th>메일주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td><a href="{{ url_for('crud.edit_user', user_id=user.id) }}">{{ user.id }}</a></td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <label for="terms"><a href="{{ url_for('crud.create_user')}}">사용자 신규 작성</a></label>
+</div>
+{% endblock %}

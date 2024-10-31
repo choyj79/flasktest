@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{% block title %}Editorial by HTML5 UP{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('main.static', filename='assets/css/main.css') }}" />
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Main Content Area -->
+			<div id="main">
+				<div class="inner">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+
+			<!-- Sidebar -->
+			{% include "main/side.html" %}
+		</div>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('main.static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('main.static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('main.static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('main.static', filename='assets/js/util.min.js') }}"></script>
+		<script src="{{ url_for('main.static', filename='assets/js/main.min.js') }}"></script>
+	</body>
+</html>
