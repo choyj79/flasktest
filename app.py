@@ -13,7 +13,7 @@ csrf = CSRFProtect()
 #LoginManager를 인스턴스화 하기
 login_manager = LoginManager()
 #login_view 속성에 미로그인시 리다이렉트하는 엔드포인트 지정하기
-login_manager.login_view = 'login.signup'
+login_manager.login_view = 'acct.signup'
 #login_message 속성에 로그인 후에 표시할 메시지 지정하기
 login_manager.login_message = ""
 
