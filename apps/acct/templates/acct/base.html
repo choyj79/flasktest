@@ -40,16 +40,6 @@
                 {% include "main/side.html" %}
             </div>
 
-            <!--로그아웃시 표시되는 부분-->
-            <div>
-                {% if current_user.is.authenticated %}
-                <p>
-                    <span>{{ current_user.username }}</span>
-                    <span><a href="{{ url_for('acct.logout')}}">로그아웃</a></span>
-                </p>
-                {% endif %}
-            </div>
-
             <!-- Main Content Area -->
             <div id="content">
                 {% block content %}{% endblock %}

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField, SubmitField
-from wtforms.validators import DataRequired, Email, length
+from wtforms.validators import DataRequired, Email, Length
 
 
 # 사용자 신규 작성과 사용자 편집 폼 클래스
@@ -10,7 +10,7 @@ class UserForm(FlaskForm):
         "사용자명",
         validators=[
             DataRequired(message="사용자명은 필수입니다."),
-            length(max=30, message="30문자 이내로 입력해 주세요."),
+            Length(max=30, message="30문자 이내로 입력해 주세요."),
         ],
     )
 
