@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>작성자: {{ post.author.username }}</p>
+    <p>작성일: {{ post.created_at.strftime('%Y-%m-%d') }}</p>
+    <p>조회수: {{ post.views }}</p>
+    <hr>
+    <div>
+        {{ post.content }}
+    </div>
+    <br>
+    <a href="{{ url_for('board.boards') }}">게시판으로 돌아가기</a>
+</body>
+</html>

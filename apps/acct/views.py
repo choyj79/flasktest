@@ -2,7 +2,7 @@
 from app import db
 from apps.acct.forms import SignUpForm, LoginForm
 from apps.crud.models import User
-from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask import Blueprint, render_template, redirect, url_for, flash, request,session
 from apps.crud.forms import UserForm
 from flask_login import login_user, logout_user
 
@@ -72,4 +72,6 @@ def login():
 @acct.route("/logout")
 def logout():
     logout_user()
+    session.clear()  # 세션 데이터 초기화 (모든 flash 메시지 포함)
+    flash("로그아웃되었습니다.", "info")  # 원하는 메시지를 설정할 수도 있습니다
     return redirect(url_for("acct.login"))

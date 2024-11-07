@@ -4,29 +4,18 @@ from app import db
 from werkzeug.security import generate_password_hash
 
 # db.Model을 상속한 User 클래스를 작성한다
-class User(db.Model):
-    # 테이블명을 지정한다
-    __tablename__ = "users"
-    
-    # 컬럼을 정의한다
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, index=True)
-    email = db.Column(db.String, unique=True, index=True)
-    password_hash = db.Column(db.String)
-    created_at = db.Column(db.DateTime, default=datetime.now)
-    updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",id)
-    
-    # 비밀번호를 세트하기 위한 프로퍼티
-    @property
-    def password(self):
-        raise AttributeError("읽어 들일 수 없음")
-    
-    # 비밀번호를 세트하기 위한 센터 함수로 해시화한 비밀번호를 세트한다
-    @password.setter
-    def password(self, password):
-        self.password_hash = generate_password_hash(password)
+class Board(db.Model):
+    __tablename__ = 'board'
 
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)  # 게시글 제목
+    content = db.Column(db.Text, nullable=False)       # 게시글 내용
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)  # 글쓴이 ID
+    views = db.Column(db.Integer, default=0)  # 조회수
+    created_at = db.Column(db.DateTime, default=datetime.now)  # 생성 시각
+    updated_at = db.Column(db.DateTime, onupdate=datetime.now) # 수정 시각
+
+    author = db.relationship('User', backref=db.backref('posts', lazy=True))
 
 
     

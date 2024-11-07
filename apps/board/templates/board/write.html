@@ -1,0 +1,33 @@
+{% extends "board/base.html" %}
+
+{% block title %}글쓰기{% endblock %}
+
+{% block content %}
+<div class="board">
+    <h2 class="board-title">글쓰기</h2>
+    <form action="{{ url_for('board.write') }}" method="POST" novalidate="novalidate" class="form-container">
+        {{ form.csrf_token }}
+        
+        <div class="form-group">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control", placeholder="제목") }}
+            {% for error in form.title.errors %}
+            <span class="form-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.content.label(class="form-label") }}
+            {{ form.content(class="form-control", placeholder="내용") }}
+            {% for error in form.content.errors %}
+            <span class="form-error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            {{ form.submit(class="form-submit", value="글 작성") }}
+        </div>
+    </form>
+
+    <a href="{{ url_for('board.boards') }}" class="return-link">게시판으로 돌아가기</a>
+</div>
+{% endblock %}

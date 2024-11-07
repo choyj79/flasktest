@@ -3,19 +3,19 @@ from flask import Flask, Blueprint,render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
-from apps.config import config  # 경로는 그대로 유지
+from apps.config import config
 from flask_login import LoginManager
+
+
+
+# LoginManager를 인스턴스화 한다.
+login_manager = LoginManager()
+login_manager.login_view = "acct.signup"
+login_manager.login_message = ""
 
 # SQLAlchemy를 인스턴스화 하기
 db = SQLAlchemy()
 csrf = CSRFProtect()
-
-#LoginManager를 인스턴스화 하기
-login_manager = LoginManager()
-#login_view 속성에 미로그인시 리다이렉트하는 엔드포인트 지정하기
-login_manager.login_view = 'acct.signup'
-#login_message 속성에 로그인 후에 표시할 메시지 지정하기
-login_manager.login_message = ""
 
 
 def create_app(config_key):

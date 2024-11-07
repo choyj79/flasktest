@@ -1,0 +1,122 @@
+.board-title {
+    font-family: 'Roboto Slab', serif;
+    /* 원하는 글꼴로 변경 */
+    font-size: 2em;
+    /* 원하는 크기로 변경 */
+    font-weight: bold;
+    /* 두껍게 */
+    color: #3d4449;
+    /* 원하는 색상으로 변경 */
+}
+
+.board {
+    font-style: normal;
+    /* 이탤릭체 제거 */
+}
+
+.board h2 {
+    font-family: "Roboto Slab", serif;
+    /* 제목 폰트 설정 */
+    font-size: 1.5em;
+    /* 제목 크기 */
+    font-weight: 700;
+    /* 제목 두께 */
+    color: #3d4449;
+    /* 제목 색상 */
+    margin-bottom: 1em;
+    /* 제목과 테이블 간 여백 */
+}
+
+.board-body {
+    padding: 1.5em;
+    background: #f5f5f5;
+}
+
+.board table {
+    border: 1px #a39485 solid;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.board th {
+    text-align: left;
+    color: #fff;
+    /* 기존 글자색 */
+    font-weight: bold;
+    /* 기존 폰트 굵기 */
+    background: #73685d;
+    /* 테이블 헤더 배경색 */
+}
+
+.board td,
+.board th {
+    padding: 1em 0.5em;
+    vertical-align: middle;
+}
+
+.board td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff;
+    /* 기존 셀 배경색 */
+    color: #3d4449;
+    /* 기존 텍스트 색상 */
+}
+
+.board a {
+    color: #73685d;
+    /* 기존 링크 색상 */
+}
+
+@media all and (max-width: 768px) {
+
+    .board table,
+    .board thead,
+    .board tbody,
+    .board th,
+    .board td,
+    .board tr {
+        display: block;
+    }
+
+    .board th {
+        text-align: right;
+    }
+
+    .board table {
+        position: relative;
+        padding-bottom: 0;
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    }
+
+    .board thead {
+        float: left;
+        white-space: nowrap;
+    }
+
+    .board tbody {
+        overflow-x: auto;
+        overflow-y: hidden;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .board tr {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .board th {
+        border-bottom: 1px solid #a39485;
+        /* 헤더 경계 색상 */
+    }
+
+    .board td {
+        border-bottom: 1px solid #e5e5e5;
+        /* 내용 경계 색상 */
+    }
+}
