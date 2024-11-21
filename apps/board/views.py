@@ -54,3 +54,21 @@ def write():
 def view(post_id):
     post = Board.query.get_or_404(post_id)  # 게시글 ID로 게시글을 조회
     return render_template('board/view.html', post=post)
+
+@board.route('/board/<int:post_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_post(post_id):
+    # 게시글 조회
+    post = Board.query.get_or_404(post_id)  # 게시글 조회
+    form = BoardForm(obj=post)  # 기존 데이터로 폼 초기화
+
+    # POST 요청 처리
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.content = form.content.data
+        db.session.commit()
+        flash('게시글이 수정되었습니다!', 'success')
+        return redirect(url_for('board.view', post_id=post.id))
+
+    # GET 요청 시 수정 화면 렌더링
+    return render_template('board/edit.html', form=form, post=post)
